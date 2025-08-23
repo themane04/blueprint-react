@@ -1,1 +1,1 @@
-### Restaurant Template Frontend
+### React Template Frontend
