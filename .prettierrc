@@ -1,0 +1,17 @@
+{
+  "printWidth": 90,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "singleAttributePerLine": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "jsxSingleQuote": false,
+  "endOfLine": "lf",
+  "plugins": [
+    "prettier-plugin-organize-imports"
+  ]
+}

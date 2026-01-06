@@ -1,7 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
+import {defineConfig} from 'vite';
 
-// https://vite.dev/config/
+/** Vite configuration for the React frontend application. */
 export default defineConfig({
-  plugins: [react()],
-})
+    plugins: [react()],
+    server: {
+        port: 5173,
+    },
+    preview: {
+        port: 5173,
+    },
+});
