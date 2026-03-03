@@ -1,8 +1,14 @@
-import { Alert, AlertDescription, Icon } from '@chakra-ui/react';
-import { TOAST_STATUS_COLORS, TOAST_STATUS_ICONS } from '../../../theme/constants.ts';
-import type { AppToastProps } from './types.ts';
+import { Alert, AlertDescription, Icon } from "@chakra-ui/react";
+import type { JSX } from "react";
 
-export const AppToast = ({ status = 'info', description }: AppToastProps) => {
+import { TOAST_STATUS_COLORS, TOAST_STATUS_ICONS } from "../../../theme/constants.ts";
+
+import type { AppToastProps } from "./types.ts";
+
+export const AppToast = ({
+  status = "info",
+  description
+}: AppToastProps): JSX.Element => {
   const color = TOAST_STATUS_COLORS[status];
   const IconComponent = TOAST_STATUS_ICONS[status];
 

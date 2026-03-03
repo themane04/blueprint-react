@@ -1,10 +1,10 @@
 /** Application route paths used throughout the whole frontend. */
 const paths = {
-  notFound: '/404',
+  notFound: "/404",
   public: {
-    root: '/',
+    root: "/"
   },
-  app: {},
+  app: {}
 };
 
 export default paths;

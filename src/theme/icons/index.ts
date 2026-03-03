@@ -3,8 +3,8 @@ import {
   FiAlertTriangle,
   FiCheckCircle,
   FiInfo,
-  FiLoader,
-} from 'react-icons/fi';
+  FiLoader
+} from "react-icons/fi";
 
 /** A collection of used icons in the application. */
 export const Icons = {
@@ -12,5 +12,5 @@ export const Icons = {
   toastError: FiAlertCircle,
   toastWarning: FiAlertTriangle,
   toastLoading: FiLoader,
-  info: FiInfo,
+  info: FiInfo
 };

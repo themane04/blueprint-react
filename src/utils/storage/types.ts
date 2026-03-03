@@ -1,1 +1,1 @@
-export type StorageDriver = 'local' | 'session';
+export type StorageDriver = "local" | "session";

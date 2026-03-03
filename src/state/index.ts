@@ -1,2 +1,2 @@
-export * from './example/exampleSelectors';
-export * from './example/exampleStore';
+export * from "./example/exampleSelectors";
+export * from "./example/exampleStore";

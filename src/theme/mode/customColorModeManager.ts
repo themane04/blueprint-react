@@ -1,7 +1,8 @@
-import { localStorageManager } from '@chakra-ui/react';
-import { STORAGE_KEYS } from '../../config';
-import { storage } from '../../utils';
-import type { StorageManager } from '../types';
+import { localStorageManager } from "@chakra-ui/react";
+
+import { STORAGE_KEYS } from "../../config";
+import { storage } from "../../utils";
+import type { StorageManager } from "../types";
 
 /**
  * A custom color mode manager that prioritizes user preferences
@@ -9,32 +10,33 @@ import type { StorageManager } from '../types';
  * Chakra UI's localStorageManager.
  */
 export const customColorModeManager: StorageManager = {
-  type: 'localStorage',
+  type: "localStorage",
 
   /**
    * Gets the current theme preference. It first checks the custom storage
    * for a user-defined preference ('light' or 'dark'). If none is found,
    * it falls back to the localStorageManager's value.
+   * @returns The current theme preference ('light' or 'dark').
    */
   get: () => {
     const pref = storage.get(STORAGE_KEYS.THEME);
 
-    if (pref === 'light' || pref === 'dark') {
+    if (pref === "light" || pref === "dark") {
       return pref;
     }
 
-    if (typeof pref === 'string' && pref !== 'system') {
-      storage.set(STORAGE_KEYS.THEME, 'system');
+    if (typeof pref === "string" && pref !== "system") {
+      storage.set(STORAGE_KEYS.THEME, "system");
     }
 
     const chakraValue = localStorageManager.get();
 
-    if (chakraValue === 'light' || chakraValue === 'dark') {
+    if (chakraValue === "light" || chakraValue === "dark") {
       return chakraValue;
     }
 
-    localStorageManager.set('light');
-    return 'light';
+    localStorageManager.set("light");
+    return "light";
   },
 
   /**
@@ -44,10 +46,10 @@ export const customColorModeManager: StorageManager = {
    * @param value - The theme preference to set ('light', 'dark', or 'system').
    */
   set: (value) => {
-    if (value === 'system') {
+    if (value === "system") {
       return;
     }
 
     localStorageManager.set(value);
-  },
+  }
 };
