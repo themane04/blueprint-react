@@ -5,12 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
+    "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\" --log-level warn",
-    "rtp": "npm run format && npm run lint"
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "i18n:extract": "i18next --config i18next-parser.config.cjs \"src/**/*.{ts,tsx}\" --silent",
+    "i18n:check": "node scripts/i18n/check/index.cjs",
+    "i18n": "npm run i18n:extract && npm run i18n:check",
+    "i18n:new": "node scripts/i18n/new/newNamespace.cjs",
+    "i18n:add-lang": "node scripts/i18n/add-lang/addLanguage.cjs",
+    "rtp": "npm run format && npm run i18n && npm run lint"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.9",
