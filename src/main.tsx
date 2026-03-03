@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { App } from "./App.tsx";
+import "./i18n";
 import theme from "./theme";
 import { customColorModeManager } from "./theme/mode/customColorModeManager.ts";
 

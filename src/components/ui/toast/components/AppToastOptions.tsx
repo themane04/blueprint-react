@@ -1,8 +1,8 @@
 import { type UseToastOptions } from "@chakra-ui/react";
 
-import { AppToast } from "../../components/ui/toast";
+import { AppToast } from "../index.ts";
 
-export const toastOptions: UseToastOptions = {
+export const AppToastOptions = (): UseToastOptions => ({
   duration: 3000,
   position: "top",
 
@@ -12,4 +12,4 @@ export const toastOptions: UseToastOptions = {
       description={description}
     />
   )
-};
+});
