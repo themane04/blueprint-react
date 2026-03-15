@@ -1,4 +1,6 @@
 /**
  * Production environment configuration.
  */
-export const environment = {};
+export const environment = {
+  backendApiUrl: ""
+};
