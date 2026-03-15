@@ -3,7 +3,7 @@ module.exports = {
   input: ["src/**/*.{ts,tsx}"],
   output: "src/i18n/.extracted/$LOCALE/$NAMESPACE.json",
   locales: ["en"],
-  ns: ["common"],
+  ns: ["common", 'error'],
   defaultNamespace: "auth",
   keySeparator: ".",
   namespaceSeparator: ":",

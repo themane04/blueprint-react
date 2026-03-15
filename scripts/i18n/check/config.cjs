@@ -7,7 +7,7 @@ module.exports = {
   EXTRACTED_DIR: path.join(ROOT, "src", "i18n", ".extracted", "en"),
   SRC_DIR: path.join(ROOT, "src"),
 
-  NAMESPACES: ["common"],
+  NAMESPACES: ["common", "error"],
 
   VALIDATOR_FIELDS: [
     "first_name",

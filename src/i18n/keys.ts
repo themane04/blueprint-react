@@ -1,4 +1,5 @@
 import type common from "./locales/en/common.json";
+import type errors from "./locales/en/error.json";
 
 /**
  * Flatten nested JSON keys into "a.b.c" strings.
@@ -12,8 +13,9 @@ type FlatKeys<T, Prev extends string = ""> = T extends string | number | boolean
     : never;
 
 type CommonFlat = FlatKeys<typeof common>;
+type ErrorsFlat = FlatKeys<typeof errors>;
 
 export type CommonKey = `common:${CommonFlat}`;
+export type ErrorKey = `error:${ErrorsFlat}`;
 
-// eslint-disable-next-line sonarjs/redundant-type-aliases
-export type AnyI18nKey = CommonKey;
+export type AnyI18nKey = CommonKey | ErrorKey;
