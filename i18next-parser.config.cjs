@@ -4,7 +4,7 @@ module.exports = {
   output: "src/i18n/.extracted/$LOCALE/$NAMESPACE.json",
   locales: ["en"],
   ns: ["common", 'error'],
-  defaultNamespace: "auth",
+  defaultNamespace: "common",
   keySeparator: ".",
   namespaceSeparator: ":",
   createOldCatalogs: false,
