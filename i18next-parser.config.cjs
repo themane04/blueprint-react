@@ -1,4 +1,4 @@
-/** i18next-parser config for Vaultora */
+/** i18next-parser config */
 module.exports = {
   input: ["src/**/*.{ts,tsx}"],
   output: "src/i18n/.extracted/$LOCALE/$NAMESPACE.json",

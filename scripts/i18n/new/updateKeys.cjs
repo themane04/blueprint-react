@@ -27,7 +27,22 @@ module.exports = function updateKeys(ROOT, namespace) {
     content = content.replace("// @i18n-keys-end", `${keyLine}\n// @i18n-keys-end`);
   }
 
-  content = content.replace("// @i18n-union-end", `| ${cap}Key\n// @i18n-union-end`);
+  content = content.replace(/export type AnyI18nKey\s*=\s*([^;]+);?/, (match, union) => {
+    let clean = union.trim();
+
+    clean = clean.replace(/\|\s*$/, "");
+
+    const parts = clean
+      .split("|")
+      .map((p) => p.trim())
+      .filter(Boolean);
+
+    if (!parts.includes(`${cap}Key`)) {
+      parts.push(`${cap}Key`);
+    }
+
+    return `export type AnyI18nKey = ${parts.join(" | ")};`;
+  });
 
   fs.writeFileSync(file, content);
   console.log("✓ Updated keys.ts");
