@@ -3,7 +3,7 @@ module.exports = {
   input: ["src/**/*.{ts,tsx}"],
   output: "src/i18n/.extracted/$LOCALE/$NAMESPACE.json",
   locales: ["en"],
-  ns: ["common", 'error'],
+  ns: ["common", "error"],
   defaultNamespace: "common",
   keySeparator: ".",
   namespaceSeparator: ":",
@@ -26,13 +26,29 @@ module.exports = {
       },
       {
         lexer: "JavascriptLexer",
-        functions: ["t", "i18n.t", "showSuccess", "showError", "showWarning", "showInfo"]
+        functions: [
+          "t",
+          "i18n.t",
+          "showSuccess",
+          "showError",
+          "showWarning",
+          "showInfo",
+          "FrontendError"
+        ]
       }
     ],
     ts: [
       {
         lexer: "JavascriptLexer",
-        functions: ["t", "i18n.t", "showSuccess", "showError", "showWarning", "showInfo"]
+        functions: [
+          "t",
+          "i18n.t",
+          "showSuccess",
+          "showError",
+          "showWarning",
+          "showInfo",
+          "FrontendError"
+        ]
       }
     ]
   }

@@ -13,8 +13,8 @@ function main() {
 
   for (const ns of NAMESPACES) {
     const defined = definedByNs.get(ns);
-    const extracted = extractedByNs.get(ns);
 
+    const extracted = extractedByNs.get(ns) || new Set();
     const used = new Set([...extracted]);
 
     literalKeys.forEach((k) => {
