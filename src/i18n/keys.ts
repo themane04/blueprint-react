@@ -1,5 +1,6 @@
 import type common from "./locales/en/common.json";
 import type errors from "./locales/en/error.json";
+// @i18n-types-imports-end
 
 /**
  * Flatten nested JSON keys into "a.b.c" strings.
@@ -14,8 +15,11 @@ type FlatKeys<T, Prev extends string = ""> = T extends string | number | boolean
 
 type CommonFlat = FlatKeys<typeof common>;
 type ErrorsFlat = FlatKeys<typeof errors>;
+// @i18n-types-end
 
 export type CommonKey = `common:${CommonFlat}`;
 export type ErrorKey = `error:${ErrorsFlat}`;
+// @i18n-keys-end
 
 export type AnyI18nKey = CommonKey | ErrorKey;
+// @i18n-union-end

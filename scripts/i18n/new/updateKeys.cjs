@@ -4,29 +4,30 @@ const { capitalize } = require("./utils.cjs");
 
 module.exports = function updateKeys(ROOT, namespace) {
   const file = path.join(ROOT, "src/i18n/keys.ts");
-
   let content = fs.readFileSync(file, "utf8");
 
   const cap = capitalize(namespace);
 
   const importLine = `import type ${namespace} from "./locales/en/${namespace}.json";`;
+  const flatLine = `type ${cap}Flat = FlatKeys<typeof ${namespace}>;`;
+  const keyLine = `export type ${cap}Key = \`${namespace}:\${${cap}Flat}\`;`;
 
   if (!content.includes(importLine)) {
-    content = content.replace(/(import type .*;\n)+/, (m) => m + importLine + "\n");
+    content = content.replace(
+      "// @i18n-types-imports-end",
+      `${importLine}\n// @i18n-types-imports-end`
+    );
   }
 
-  if (!content.includes(`${cap}Flat`)) {
-    content += `\ntype ${cap}Flat = FlatKeys<typeof ${namespace}>;\n`;
+  if (!content.includes(flatLine)) {
+    content = content.replace("// @i18n-types-end", `${flatLine}\n// @i18n-types-end`);
   }
 
-  if (!content.includes(`${cap}Key`)) {
-    content += `export type ${cap}Key = \`${namespace}:\${${cap}Flat}\`;\n`;
+  if (!content.includes(keyLine)) {
+    content = content.replace("// @i18n-keys-end", `${keyLine}\n// @i18n-keys-end`);
   }
 
-  content = content.replace(/export type AnyI18nKey\s*=\s*([^;]+);/, (match, union) => {
-    if (union.includes(`${cap}Key`)) return match;
-    return `export type AnyI18nKey = ${union} | ${cap}Key;`;
-  });
+  content = content.replace("// @i18n-union-end", `| ${cap}Key\n// @i18n-union-end`);
 
   fs.writeFileSync(file, content);
   console.log("✓ Updated keys.ts");
