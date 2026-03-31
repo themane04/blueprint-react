@@ -9,11 +9,13 @@ import error_en from "./locales/en/error.json";
 
 i18n.use(initReactI18next).init({
   resources: {
+    // @i18n-resources-start
     en: {
       common: common_en,
       error: error_en
       // @i18n-resources-end
     }
+    // @i18n-resources-lang-end
   },
   lng: "en",
   fallbackLng: "en",
