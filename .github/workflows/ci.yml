@@ -1,0 +1,45 @@
+# TODO: Update Name
+name: React-Blueprint CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  frontend:
+    name: Frontend (Vite + TypeScript)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Prettierr check frontend
+        run: npm run format:check
+
+      - name: i18 check frontend
+        run: npm run i18n
+
+      - name: Lint check frontend
+        run: npm run lint
+
+      - name: Build frontend
+        run: npm run build
