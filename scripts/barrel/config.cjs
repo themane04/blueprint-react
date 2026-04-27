@@ -21,7 +21,7 @@ const SKIP_DIRS = new Set([
  * Paths use forward slashes and are relative to src/.
  */
 const IGNORE_PATHS = new Set([
-  "i18n", // keys.ts and types.d.ts are not re-exported — used directly
+  "i18n", // keys.ts is not re-exported — used directly
   "router", // types.ts is internal to the router, not part of public API
   "theme", // types.ts contains Chakra augmentations, not re-exported
   "types" // chakra-icon.d.ts is a global declaration file

@@ -21,7 +21,7 @@ export function useI18nToast(): I18nToastProps {
    * @param params - Optional parameters for interpolation in the translation.
    * @returns The translated string or the key itself if translation is missing.
    */
-  function safeTranslate(key: AnyI18nKey, params?: Record<string, unknown>): AnyI18nKey {
+  function safeTranslate(key: AnyI18nKey, params?: Record<string, unknown>): string {
     const value = i18n.t(key, {
       ...params,
       defaultValue: key,
