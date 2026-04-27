@@ -14,8 +14,8 @@
     "i18n:extract": "i18next --config i18next-parser.config.cjs \"src/**/*.{ts,tsx}\" --silent",
     "i18n:check": "node scripts/i18n/check/index.cjs",
     "i18n": "npm run i18n:extract && npm run i18n:check",
-    "i18n:new": "node scripts/i18n/new/index.cjs && prettier --write \"src/i18n/index.ts\" \"src/i18n/keys.ts\" --log-level warn",
-    "i18n:add-lang": "node scripts/i18n/add-lang/index.cjs && prettier --write \"src/i18n/index.ts\" --log-level warn",
+    "i18n:new": "node scripts/i18n/new/index.cjs",
+    "i18n:add-lang": "node scripts/i18n/add-lang/index.cjs",
     "barrel": "node scripts/barrel/index.cjs",
     "rtp": "npm run format && npm run i18n && npm run barrel && npm run lint"
   },
