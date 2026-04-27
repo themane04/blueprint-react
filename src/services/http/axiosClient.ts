@@ -15,10 +15,10 @@ import axios, { type AxiosError } from "axios";
 import { environment } from "../../config";
 import { events } from "../../lib";
 
-import { FrontendError } from "./frontendError.ts";
 import type { BackendErrorResponse } from "./types.ts";
+import { FrontendError } from "./utils";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: environment.backendApiUrl,
   withCredentials: true
 });
@@ -86,5 +86,3 @@ api.interceptors.response.use(
     throw new FrontendError("error:unexpected");
   }
 );
-
-export default api;

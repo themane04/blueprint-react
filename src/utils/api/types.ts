@@ -5,10 +5,4 @@ export type FrontendError = {
   key: AnyI18nKey;
 };
 
-export type Options = {
-  showError: (key: AnyI18nKey) => void;
-  fieldErrorSetter?: (field: string) => void;
-  authFailedMessage?: AnyI18nKey;
-};
-
 export type BackendMessageMapState = Record<string, AnyI18nKey>;

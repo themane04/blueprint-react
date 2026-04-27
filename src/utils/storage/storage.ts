@@ -1,4 +1,4 @@
-import { getStorage } from "./helpers.ts";
+import { getStorage } from "./helpers";
 import type { StorageDriver } from "./types.ts";
 
 /** Wrapper around localStorage and sessionStorage with JSON serialization/deserialization. */

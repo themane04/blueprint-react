@@ -1,3 +1,1 @@
-const shadows = {};
-
-export default shadows;
+export const shadows = {};

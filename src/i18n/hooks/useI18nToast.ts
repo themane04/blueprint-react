@@ -1,7 +1,8 @@
+// eslint-disable-next-line no-restricted-imports -- this hook is the typed wrapper around useToast, direct import is intentional here
 import { useToast } from "@chakra-ui/react";
 import i18n from "i18next";
 
-import { AppToastOptions } from "../../components/ui/toast";
+import { AppToastOptions } from "../../components/ui/toast/components";
 import type { AnyI18nKey } from "../keys.ts";
 
 import type { I18nToastProps } from "./types.ts";

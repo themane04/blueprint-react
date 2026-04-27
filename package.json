@@ -1,5 +1,5 @@
 {
-  "name": "restaurant-template-fe",
+  "name": "blueprint-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,7 +16,8 @@
     "i18n": "npm run i18n:extract && npm run i18n:check",
     "i18n:new": "node scripts/i18n/new/index.cjs",
     "i18n:add-lang": "node scripts/i18n/add-lang/index.cjs",
-    "rtp": "npm run format && npm run i18n && npm run lint"
+    "barrel": "node scripts/barrel/index.cjs",
+    "rtp": "npm run format && npm run i18n && npm run barrel && npm run lint"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.9",
@@ -38,7 +39,8 @@
     "react-dom": "^19.1.1",
     "react-i18next": "^16.5.4",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.11.0"
+    "react-router-dom": "^7.11.0",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

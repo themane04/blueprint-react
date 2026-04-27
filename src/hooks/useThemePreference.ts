@@ -1,31 +1,26 @@
 import { useColorMode } from "@chakra-ui/react";
-import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { STORAGE_KEYS } from "../config";
-import type { ThemePreference } from "../theme/types.ts";
-import { storage } from "../utils";
+import { storage, storageKeys } from "../utils/storage";
+
+import type { ThemePreference, UseThemePreferenceReturn } from "./types.ts";
 
 /**
  * Custom hook to manage user's theme preference (light, dark, system).
- *
  * This hook synchronizes the user's theme preference with local storage
  * and listens for system color scheme changes when the preference is set to 'system'.
- *
  * @returns An object containing the current theme preference, color mode, and a setter function.
  */
-export function useThemePreference(): {
-  preference: ThemePreference;
-  colorMode: string;
-  setPreference: Dispatch<SetStateAction<ThemePreference>>;
-} {
+export function useThemePreference(): UseThemePreferenceReturn {
   const { colorMode, setColorMode } = useColorMode();
+  const storageKey = storageKeys.themePreference;
 
   const [preference, setPreference] = useState<ThemePreference>(() => {
-    return storage.get<ThemePreference>(STORAGE_KEYS.THEME) || "system";
+    return storage.get<ThemePreference>(storageKey) || "system";
   });
 
   useEffect(() => {
-    storage.set(STORAGE_KEYS.THEME, preference);
+    storage.set(storageKey, preference);
 
     if (preference === "system") {
       setColorMode("system");

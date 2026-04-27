@@ -1,4 +1,4 @@
-import type { AnyI18nKey } from "../../i18n/keys.ts";
+import type { AnyI18nKey } from "../../../i18n/keys.ts";
 
 /** Custom error class for frontend-specific errors. */
 export class FrontendError extends Error {

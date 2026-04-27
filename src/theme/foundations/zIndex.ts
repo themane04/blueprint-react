@@ -1,3 +1,1 @@
-const zIndices = {};
-
-export default zIndices;
+export const zIndices = {};

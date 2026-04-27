@@ -1,4 +1,4 @@
-const styles = {
+export const styles = {
   global: {
     "::-webkit-scrollbar": {
       display: "none"
@@ -11,5 +11,3 @@ const styles = {
     }
   }
 };
-
-export default styles;

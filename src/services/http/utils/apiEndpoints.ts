@@ -2,7 +2,7 @@
  * API Endpoints Configuration
  * Centralized definition of all API endpoint paths used in the application.
  */
-export const API_ENDPOINTS = {
+export const apiEndpoints = {
   auth: {
     root: "/auth",
     register: "/auth/register",

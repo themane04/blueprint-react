@@ -1,7 +1,6 @@
 import { localStorageManager } from "@chakra-ui/react";
 
-import { STORAGE_KEYS } from "../../config";
-import { storage } from "../../utils";
+import { storage, storageKeys } from "../../utils/storage";
 import type { StorageManager } from "../types";
 
 /**
@@ -19,14 +18,14 @@ export const customColorModeManager: StorageManager = {
    * @returns The current theme preference ('light' or 'dark').
    */
   get: () => {
-    const pref = storage.get(STORAGE_KEYS.THEME);
+    const pref = storage.get(storageKeys.themePreference);
 
     if (pref === "light" || pref === "dark") {
       return pref;
     }
 
     if (typeof pref === "string" && pref !== "system") {
-      storage.set(STORAGE_KEYS.THEME, "system");
+      storage.set(storageKeys.themePreference, "system");
     }
 
     const chakraValue = localStorageManager.get();

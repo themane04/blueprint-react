@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import publicRoot from "./roots/PublicRoot.tsx";
+import { catchAllRoot, notFoundRoot, publicRoot } from "./roots";
 
 /** The main router configuration for the application. */
-const router = createBrowserRouter([publicRoot]);
-
-export default router;
+export const router = createBrowserRouter([publicRoot, notFoundRoot, catchAllRoot]);

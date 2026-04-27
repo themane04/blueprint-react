@@ -1,3 +1,1 @@
-const radii = {};
-
-export default radii;
+export const radii = {};

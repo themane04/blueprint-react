@@ -1,4 +1,4 @@
-const typography = {
+export const typography = {
   fonts: {},
   fontSizes: {
     xs: "0.75rem", // 12px
@@ -36,5 +36,3 @@ const typography = {
     wider: "0.02em"
   }
 };
-
-export default typography;

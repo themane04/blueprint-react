@@ -1,4 +1,4 @@
-import type { StorageDriver } from "./types.ts";
+import type { StorageDriver } from "../types.ts";
 
 /**
  * Get the appropriate storage object based on the driver.

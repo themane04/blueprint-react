@@ -1,15 +1,4 @@
-/**
- * Normalized shape of backend error responses.
- *
- * Structure matches all API error formats:
- *  `type`: high-level error category (e.g. ValidationError, AuthenticationFailed)
- *  `detail`: optional descriptive message for non-field errors
- *  `fields`: optional dictionary of field-specific validation messages
- *  `message`: optional general error message
- *
- * The structure uses optional properties because backend error objects
- * may vary depending on the endpoint and error context.
- */
+/** Normalized shape of backend error responses. Feel free to adjust based on your backend */
 export type BackendErrorResponse = {
   error?: {
     type?: string;

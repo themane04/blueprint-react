@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   // STATUS COLORS
   success: {
     500: "#34A853"
@@ -13,5 +13,3 @@ const colors = {
     500: "#FBBC05"
   }
 };
-
-export default colors;

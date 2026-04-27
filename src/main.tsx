@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
 import "./i18n";
 import theme from "./theme";
-import { customColorModeManager } from "./theme/mode/customColorModeManager.ts";
+import { customColorModeManager } from "./theme/manager";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

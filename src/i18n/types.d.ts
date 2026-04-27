@@ -16,6 +16,7 @@ type CommonNS = WithNamespace<"common", typeof common>;
 type ErrorsNS = WithNamespace<"errors", typeof errors>;
 
 declare module "i18next" {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- interface required for declaration merging into i18next module
   interface CustomTypeOptions {
     defaultNS: "common";
     resources: {

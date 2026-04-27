@@ -4,19 +4,14 @@
  */
 import type { EventCallback, EventMap } from "./types.ts";
 
-/**
- * Holds the registered event listeners.
- * Each event type maps to an array of callback functions.
- */
+/** Holds the registered event listeners. Each event type maps to an array of callback functions. */
 const listeners: {
   [K in keyof EventMap]: EventCallback<EventMap[K]>[];
 } = {
   throttled: []
 };
 
-/**
- * Event emitter object with methods to register, emit, and unregister events.
- */
+/** Event emitter object with methods to register, emit, and unregister events. */
 export const events = {
   /**
    * Register an event listener for a specific event type.
