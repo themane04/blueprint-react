@@ -1,7 +1,10 @@
 import { localStorageManager } from "@chakra-ui/react";
 
 import { storage, storageKeys } from "../../utils/storage";
+import { initialColorMode } from "../config.ts";
 import type { StorageManager } from "../types";
+
+import { clearColorModeStorage, isColorModeVersionValid } from "./utils";
 
 /**
  * A custom color mode manager that prioritizes user preferences
@@ -18,24 +21,25 @@ export const customColorModeManager: StorageManager = {
    * @returns The current theme preference ('light' or 'dark').
    */
   get: () => {
+    if (!isColorModeVersionValid()) {
+      clearColorModeStorage();
+      storage.set(storageKeys.colorModeVersion, initialColorMode);
+      return initialColorMode;
+    }
+
     const pref = storage.get(storageKeys.themePreference);
 
-    if (pref === "light" || pref === "dark") {
-      return pref;
-    }
+    if (pref === "light" || pref === "dark") return pref;
 
     if (typeof pref === "string" && pref !== "system") {
       storage.set(storageKeys.themePreference, "system");
     }
 
     const chakraValue = localStorageManager.get();
+    if (chakraValue === "light" || chakraValue === "dark") return chakraValue;
 
-    if (chakraValue === "light" || chakraValue === "dark") {
-      return chakraValue;
-    }
-
-    localStorageManager.set("light");
-    return "light";
+    localStorageManager.set(initialColorMode);
+    return initialColorMode;
   },
 
   /**
@@ -45,10 +49,8 @@ export const customColorModeManager: StorageManager = {
    * @param value - The theme preference to set ('light', 'dark', or 'system').
    */
   set: (value) => {
-    if (value === "system") {
-      return;
-    }
-
+    if (value === "system") return;
+    storage.set(storageKeys.colorModeVersion, initialColorMode);
     localStorageManager.set(value);
   }
 };

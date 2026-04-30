@@ -1,3 +1,4 @@
+// TODO: Replace APP_NAME with the name of the app
 const APP_NAME = "PLACEHOLDER";
 const CACHE_VERSION = "v1";
 
