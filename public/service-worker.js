@@ -18,6 +18,7 @@ self.addEventListener("install", (event) => {
           ...PRECACHE_URLS,
 
           // ADD URLS
+          "/site/favicon.png",
         ])
       )
   );
