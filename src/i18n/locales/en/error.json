@@ -1,0 +1,6 @@
+{
+  "network": "Network error. Please check your connection.",
+  "notFound": "The requested endpoint was not found.",
+  "throttled": "Too many requests. Please try again later.",
+  "unexpected": "Something went wrong. Please try again."
+}

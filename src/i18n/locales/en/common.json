@@ -1,0 +1,12 @@
+{
+  "homepage": {
+    "description": "A clean, scalable React + TypeScript starter built for production. Feel free to use it as a base for your next project — feedback, ideas, and criticism are always welcome.",
+    "github": "View on GitHub →",
+    "title": "Blueprint React"
+  },
+  "notFound": {
+    "cta": "Back to Home",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "title": "Page Not Found"
+  }
+}

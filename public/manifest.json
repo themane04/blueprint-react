@@ -1,0 +1,14 @@
+// TODO: Replace with real app data
+{
+  "name": "PLACEHOLDER",
+  "short_name": "PLACEHOLDER",
+  "description": "PLACEHOLDER",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0E1116",
+  "theme_color": "#0E1116",
+  "orientation": "portrait-primary",
+  "icons": [
+  ]
+}
