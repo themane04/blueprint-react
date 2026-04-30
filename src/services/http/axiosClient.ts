@@ -12,7 +12,7 @@
  */
 import axios, { type AxiosError } from "axios";
 
-import { environment } from "../../config";
+import { environment } from "../../config/environment";
 import { events } from "../../lib";
 
 import type { BackendErrorResponse } from "./types.ts";

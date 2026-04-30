@@ -1,6 +1,6 @@
 # Blueprint React Frontend
 
-A clean and scalable React + TypeScript frontend blueprint designed for production-ready applications.  
+A clean and scalable React + TypeScript frontend blueprint designed for production-ready applications.
 Includes structured architecture, theming, i18n automation, and modern development tooling.
 
 ---
@@ -16,6 +16,19 @@ Includes structured architecture, theming, i18n automation, and modern developme
 
 ---
 
+## Documentation
+
+The `docs/` folder contains two reference documents that cover everything about how this project is structured
+and styled. Read them before writing any code, and give them as context to any AI tool you use for code
+generation — they contain all the conventions, rules, and patterns the codebase follows.
+
+| Document                         | What it covers                                                                             |
+|----------------------------------|--------------------------------------------------------------------------------------------|
+| `docs/frontend-guidelines.md`    | Architecture, TypeScript conventions, component patterns, routing, services, i18n, scripts |
+| `docs/frontend-design-system.md` | Color tokens, typography, spacing, shadows, component variants, theme structure            |
+
+---
+
 ## Getting Started
 
 ### 1. Install dependencies
@@ -24,47 +37,30 @@ Includes structured architecture, theming, i18n automation, and modern developme
 npm install
 ```
 
-### 2. Start development server
+### 2. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+Fill in the values in `.env`. Never commit this file.
+
+### 3. Start development server
 
 ```bash
 npm run dev
 ```
 
-### 3. Build for production
+### 4. Build for production
 
 ```bash
 npm run build
 ```
 
-### 4. Preview production build
+### 5. Preview production build
 
 ```bash
 npm run preview
-```
-
----
-
-## Environment Variables
-
-Create a `.env` file in the project root and copy values from `.env.example`.
-
----
-
-## Project Structure
-
-```
-src/
-├── components/     # Reusable UI components
-├── config/         # App configuration & environments
-├── hooks/          # Custom React hooks
-├── i18n/           # Internationalization setup
-├── layouts/        # Layout components
-├── pages/          # Route-based pages
-├── router/         # Routing configuration
-├── services/       # API layer (Axios)
-├── state/          # Global state management
-├── theme/          # Chakra UI theme system
-├── utils/          # Helper utilities
 ```
 
 ---
@@ -82,44 +78,33 @@ npm run format:check
 
 ## Ready To Push (RTP)
 
-This project includes a helper command to ensure code quality before pushing changes:
+Always run this before pushing. It validates the entire codebase in one command:
 
 ```bash
 npm run rtp
 ```
 
-**RTP (Ready To Push)** runs:
+**RTP runs:**
 
-- Code formatting
-- i18n extraction and validation
-- Linting
+1. `format` — Prettier formatting
+2. `i18n` — translation key extraction and validation
+3. `barrel` — barrel export completeness check
+4. `lint` — ESLint with zero warnings allowed
 
-This ensures your codebase stays clean, consistent, and production-ready.
+All four must pass before a push.
 
-### Optional: Git Hooks
+### Optional: Git Hook
 
-You can automate this by adding it to your Git workflow:
-
-- **Pre-commit hook**
-- **Pre-push hook**
-
-Example using a pre-push hook:
+Automate RTP on every push with a pre-push hook:
 
 ```bash
 #!/bin/sh
 npm run rtp
 ```
 
-This will automatically validate your code before every push.
-
-
 ---
 
 ## Internationalization (i18n)
-
-This project includes a fully automated and typed i18n workflow.
-
-### Commands
 
 ```bash
 # Extract translation keys
@@ -140,72 +125,28 @@ npm run i18n:add-lang <lang>
 
 ---
 
-## Barrel Scripts
+## Barrel Check
 
-This project uses a barrel script to automatically validate `index.ts` export files across the `src/` directory.
-
-### What is a barrel file?
-
-A barrel file is an `index.ts` that re-exports everything from a directory, allowing cleaner relative imports:
-
-```ts
-// Instead of this:
-import { useServiceWorker } from "./hooks/useServiceWorker";
-
-// You can do this:
-import { useServiceWorker } from "./hooks";
-```
-
-### Command
+Validates that every directory under `src/` has a complete `index.ts` barrel export.
 
 ```bash
 npm run barrel
 ```
 
-This scans all directories under `src/` and checks that each one has a proper `index.ts` that re-exports its contents.
-It reports three states per directory:
-
-- **ok** — all files are exported
-- **missing index** — no `index.ts` exists at all
-- **missing exports** — `index.ts` exists but some files are not re-exported
-
-### Skipped directories
-
-Some directories are intentionally excluded from the check because their `index.ts` serves a different purpose than
-re-exporting siblings (e.g. type augmentation files, internal router types). These can be configured in
-`scripts/barrel/config.cjs`.
-
-The barrel check is also part of the **RTP** pipeline and runs automatically before every push.
-
-## Theming
-
-All design tokens and styling live under:
-
-```
-src/theme/
-```
-
-Guidelines:
-
-- Use Chakra UI tokens (colors, spacing, typography)
-- Avoid inline styles when possible
-- Keep styling consistent and centralized
+Reports three states per directory: **ok**, **missing index**, or **missing exports**.
+Skipped directories are configured in `scripts/barrel/config.cjs`.
 
 ---
 
 ## Deployment
 
-- Docker support via `Dockerfile`
-- Nginx configuration included
-- Suitable for containerized environments (Docker / Kubernetes)
+Docker and Nginx are included. To build and run the production container:
 
----
+```bash
+docker compose up --build
+```
 
-## Notes
-
-- Environment variables are loaded per environment
-- Rebuild the app after dependency changes
-- Designed for scalability and maintainability
+The `.env` file is copied into the image at build time, so rebuild after any environment variable changes.
 
 ---
 

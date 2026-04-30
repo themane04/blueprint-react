@@ -28,7 +28,7 @@ export function useI18nToast(): I18nToastProps {
       returnObjects: false
     });
 
-    return typeof value === "string" && value.trim() !== "" ? value : key;
+    return value.trim() !== "" ? value : key;
   }
 
   /**

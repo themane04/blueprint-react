@@ -3,7 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import { Text } from "./components";
 import { config } from "./config.ts";
 import { colors, radii, shadows, typography, zIndices } from "./foundations";
-import { styles } from "./styles";
+import styles from "./visual/styles.ts";
 
 const overrides = {
   config,

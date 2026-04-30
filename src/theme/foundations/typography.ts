@@ -1,5 +1,10 @@
 export const typography = {
-  fonts: {},
+  fonts: {
+    // Replace with project fonts — load them in index.html
+    heading: "'Inter', system-ui, sans-serif",
+    body: "'Inter', system-ui, sans-serif",
+    mono: "'JetBrains Mono', 'Courier New', monospace"
+  },
   fontSizes: {
     xs: "0.75rem", // 12px
     sm: "0.875rem", // 14px
@@ -33,6 +38,7 @@ export const typography = {
     tight: "-0.01em",
     normal: "0",
     wide: "0.01em",
-    wider: "0.02em"
+    wider: "0.02em",
+    widest: "0.08em"
   }
 };
