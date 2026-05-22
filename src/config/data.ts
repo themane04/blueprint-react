@@ -1,3 +1,3 @@
 export const data = {
-  defaultAppLang: "de"
+  defaultAppLang: "en"
 };
