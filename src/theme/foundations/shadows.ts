@@ -12,5 +12,9 @@ export const shadows = {
   focusError: "0 0 0 3px rgba(234, 67, 53, 0.5)",
 
   // SURFACE
-  surfaceInset: "inset 0 1px 0 rgba(255, 255, 255, 0.06)"
+  surfaceInset: "inset 0 1px 0 rgba(255, 255, 255, 0.06)",
+
+  // COMPONENT-SPECIFIC — replace rgba values to match project primary/danger colors
+  primaryButton: "0 0 12px rgba(59, 130, 246, 0.4)",
+  dangerButton: "0 0 12px rgba(234, 67, 53, 0.4)"
 };

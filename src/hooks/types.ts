@@ -15,3 +15,9 @@ export type UseThemePreferenceReturn = {
 };
 
 export type ThemePreference = "light" | "dark" | "system";
+
+export type UseLanguageReturn = {
+  currentLang: string;
+  availableLangs: string[];
+  setLanguage: (lang: string) => void;
+};

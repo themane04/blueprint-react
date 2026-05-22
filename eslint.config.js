@@ -84,12 +84,7 @@ export default defineConfig([
         {
           selector: "property",
           format: ["camelCase", "snake_case"],
-          leadingUnderscore: "allow",
-          filter: {
-            regex:
-              "^([0-9]+|[0-9]+[a-z]+|[A-Z][a-zA-Z0-9]*|\\.[a-z][a-zA-Z0-9]*|.*[, :*].*|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$",
-            match: false
-          }
+          leadingUnderscore: "allow"
         }
       ],
 
@@ -212,6 +207,27 @@ export default defineConfig([
     files: ["src/theme/icons/index.ts"],
     rules: {
       "no-restricted-imports": "off"
+    }
+  },
+  // ─── Naming convention exceptions ─────────────────────────────────────────
+  // These files use property keys that are intentionally non-camelCase:
+  // theme foundations use numeric scale keys (500, "2xl") and token names,
+  // backendMessageMap uses raw backend message strings as keys.
+  {
+    files: [
+      "src/theme/**/*",
+      "src/utils/api/backendMessageMap.ts",
+      "src/types/chakra-theme.d.ts"
+    ],
+    rules: {
+      "@typescript-eslint/naming-convention": [
+        "error",
+        { selector: "class", format: ["PascalCase"] },
+        { selector: "interface", format: ["PascalCase"] },
+        { selector: "method", format: ["camelCase"] },
+        { selector: "parameter", format: ["camelCase"], leadingUnderscore: "allow" }
+        // property selector intentionally omitted — non-camelCase keys are expected here
+      ]
     }
   }
 ]);
