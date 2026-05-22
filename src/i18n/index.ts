@@ -2,6 +2,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+import { data } from "../config";
 import { storage, storageKeys } from "../utils/storage";
 
 // i18n namespace imports (AUTO-GENERATED)
@@ -9,7 +10,7 @@ import common_en from "./locales/en/common.json";
 import error_en from "./locales/en/error.json";
 // @i18n-imports-end
 
-const savedLang = storage.get<string>(storageKeys.appLang) || "en";
+const savedLang = storage.get<string>(storageKeys.appLang) || data.defaultAppLang;
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -22,7 +23,7 @@ i18n.use(initReactI18next).init({
     // @i18n-resources-lang-end
   },
   lng: savedLang,
-  fallbackLng: "en",
+  fallbackLng: data.defaultAppLang,
   ns: ["common", "error"],
   defaultNS: "common"
 });
