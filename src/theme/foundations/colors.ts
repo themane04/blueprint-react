@@ -1,9 +1,33 @@
 export const colors = {
   // STATUS COLORS
-  success: { 500: "#34A853" },
-  error: { 500: "#EA4335" },
-  info: { 500: "#4285F4" },
-  warning: { 500: "#FBBC05" },
+  success: {
+    100: "#d4edda",
+    200: "#a8d5b5",
+    500: "#34A853",
+    700: "#1e7e34",
+    800: "#155724"
+  },
+  error: {
+    100: "#fde8e6",
+    200: "#f9c6c2",
+    500: "#EA4335",
+    700: "#b52a1e",
+    800: "#7d1c14"
+  },
+  info: {
+    100: "#dce8fd",
+    200: "#b0ccfb",
+    500: "#4285F4",
+    700: "#1a5dc8",
+    800: "#103d87"
+  },
+  warning: {
+    100: "#fef8e1",
+    200: "#fdedb3",
+    500: "#FBBC05",
+    700: "#c89400",
+    800: "#876300"
+  },
 
   // SURFACE TOKENS — dark mode. Replace with project-specific values.
   brand: {
@@ -35,7 +59,8 @@ export const colors = {
     secondary: "#e0e0e0",
     muted: "#9e9e9e",
     disabled: "#6e6e6e",
-    inverse: "#111111"
+    inverse: "#111111",
+    hover: "#f0f0f0"
   },
 
   // TEXT TOKENS — light mode. Replace with project-specific values.
@@ -44,6 +69,7 @@ export const colors = {
     secondary: "#333333",
     muted: "#6b6b6b",
     disabled: "#aaaaaa",
-    inverse: "#ffffff"
+    inverse: "#ffffff",
+    hover: "#222222"
   }
 };

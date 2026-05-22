@@ -1,16 +1,25 @@
 import { Button, Flex, Heading, HStack, Link, Text } from "@chakra-ui/react";
 import type { JSX } from "react";
 
-import { useI18n, useLanguage } from "../../hooks";
+import {
+  type ThemePreference,
+  useI18n,
+  useLanguage,
+  useThemePreference
+} from "../../hooks";
 
 /**
  * Homepage component that displays a welcome message, a link to the GitHub
- * repository, and a language switcher demonstrating the i18n setup.
- * @returns A centered layout with the blueprint title, description, GitHub link, and language buttons.
+ * repository, a language switcher, and a theme toggle — demonstrating the
+ * i18n and color mode systems built into the blueprint.
+ * @returns A centered layout with the blueprint title, description, GitHub link, language buttons, and theme buttons.
  */
 export const Homepage = (): JSX.Element => {
   const { t } = useI18n();
   const { currentLang, availableLangs, setLanguage } = useLanguage();
+  const { preference, setPreference } = useThemePreference();
+
+  const themeOptions: ThemePreference[] = ["light", "dark", "system"];
 
   return (
     <Flex
@@ -51,6 +60,20 @@ export const Homepage = (): JSX.Element => {
             onClick={() => setLanguage(lang)}
           >
             {lang.toUpperCase()}
+          </Button>
+        ))}
+      </HStack>
+
+      {/* Theme switcher — remove or replace once your app has a proper nav */}
+      <HStack>
+        {themeOptions.map((option) => (
+          <Button
+            key={option}
+            variant={preference === option ? "solid" : "ghost"}
+            size="sm"
+            onClick={() => setPreference(option)}
+          >
+            {option.charAt(0).toUpperCase() + option.slice(1)}
           </Button>
         ))}
       </HStack>
