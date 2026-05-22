@@ -6,6 +6,8 @@ import { data } from "../config";
 import { storage, storageKeys } from "../utils/storage";
 
 // i18n namespace imports (AUTO-GENERATED)
+import common_de from "./locales/de/common.json";
+import error_de from "./locales/de/error.json";
 import common_en from "./locales/en/common.json";
 import error_en from "./locales/en/error.json";
 // @i18n-imports-end
@@ -19,6 +21,10 @@ i18n.use(initReactI18next).init({
       common: common_en,
       error: error_en
       // @i18n-resources-end
+    },
+    de: {
+      common: common_de,
+      error: error_de
     }
     // @i18n-resources-lang-end
   },

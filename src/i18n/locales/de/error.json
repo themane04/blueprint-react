@@ -1,0 +1,6 @@
+{
+  "network": "Netzwerkfehler. Bitte überprüfe deine Verbindung.",
+  "notFound": "Der angeforderte Endpunkt wurde nicht gefunden.",
+  "throttled": "Zu viele Anfragen. Bitte versuche es später erneut.",
+  "unexpected": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+}
